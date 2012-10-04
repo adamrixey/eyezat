@@ -24,11 +24,14 @@ end
 
 
 get '/:link' do
+  @link = params[ :link ]
+  geojam = Geojam.new()
+  geojam.base62_jam = @link
+  raise Sinatra::NotFound unless geojam.base62_jam
+  @coordinates = geojam.coordinates
+
   @title = 'eyez.at this geocoordinate location'
   @init_func = 'initLink'
-  @link = params[ :link ]
-  @coordinates = Geojam.new( @link ).coordinates
-  raise Sinatra::NotFound unless @coordinates
   erb :link
 end
 

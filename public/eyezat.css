@@ -36,23 +36,20 @@ body {
 	margin-top: 21px;
 	background-color: #515151;
 	padding: 20px;
-	line-height: 45px;
+	font-size: 20px;
 }
 
 #coords {
-	font-size: 20px;
+	line-height: 45px;
 	background-color: #333337;
 	color: #00B4FF;
 	padding: 8px 20px 9px 20px;
 }
 
-#permalink, #permalink:hover, #permalink:visited {
-}
-
 #permalink a, #permalink a:hover, #permalink a:visited {
+	line-height: 45px;
 	color: #00B4FF;
 	text-decoration: none;
-	font-size: 20px;
 	margin-left: 15px;
 }
 
@@ -67,5 +64,8 @@ body {
 	#content {
 		width: 95%;
 		padding: 20px 1%;
+	}
+	#info {
+		font-size: 16px;
 	}
 }

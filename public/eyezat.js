@@ -83,6 +83,6 @@ function drawMap() {
 	var marker = new google.maps.Marker( {
 		position: mapLatLng,
 		map: map,
-		title: 'eyez.at/asdflkj'
+		title: 'eyez.at this location'
 	} );
 }

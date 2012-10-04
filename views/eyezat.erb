@@ -26,10 +26,13 @@
       <span id="link"></span>
       <% else %>
       <span id="link"><a href="/<%= @link %>">eyez.at/<%= @link %></a></span>
+      <a href="http://maps.google.com/maps?daddr=<%= @coordinates[ :latitude ] %>,<%= @coordinates[ :longitude ] %>">Directions</a>
       <% end %>
     </span>
 
+
   <div data-zoom="<%= @map_zoom %>" id="map_canvas"></div>
+
   </div>
 </div>
 

@@ -1,0 +1,4 @@
+Sitemap: http://eyez.at/sitemap.xml
+
+User-agent: *
+Disallow:

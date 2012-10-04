@@ -12,7 +12,7 @@ class Geojam
 
   def coordinates
     # validate shortener
-    return nil if ( @shortener =~ /^[0-9A-Z]{0,}$/i ).nil?
+    return nil if ( @shortener =~ /^[0-9A-Z]{10}$/i ).nil?
 
     {
       :latitude => expand( @short_lat ),

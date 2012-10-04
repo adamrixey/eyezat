@@ -1,0 +1,71 @@
+html {
+	height: 100%
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: Georgia, serif;
+	font-size: 14px;
+	color:#00DFFC;
+	background-color:#FFFFFF;
+}
+
+#logo, #logo a {
+	width:212px;
+	height:56px;
+	display:block;
+}
+
+#logo {
+	background-image: url( '/eyezat.png' );
+}
+
+#logo a {
+	text-indent: -9999px;
+}
+
+#content {
+	width: 980px;
+	margin: 0 auto;
+	padding: 40px 0px;
+}
+
+#info {
+	margin-top: 21px;
+	background-color: #515151;
+	padding: 20px;
+	line-height: 45px;
+}
+
+#coords {
+	font-size: 20px;
+	background-color: #333337;
+	color: #00B4FF;
+	padding: 8px 20px 9px 20px;
+}
+
+#permalink, #permalink:hover, #permalink:visited {
+}
+
+#permalink a, #permalink a:hover, #permalink a:visited {
+	color: #00B4FF;
+	text-decoration: none;
+	font-size: 20px;
+	margin-left: 15px;
+}
+
+#map_canvas {
+	width: 100%;
+	height: 350px;
+	margin-top: 20px;
+}
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 979px) {
+	#content {
+		width: 95%;
+		padding: 20px 1%;
+	}
+}

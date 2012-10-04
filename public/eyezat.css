@@ -8,8 +8,18 @@ body {
 	padding: 0;
 	font-family: Georgia, serif;
 	font-size: 14px;
-	color:#00DFFC;
+	color:#515151;
 	background-color:#FFFFFF;
+}
+
+a, a:visited {
+	color:#00B4FF;
+	text-decoration: none;
+}
+
+a:hover {
+	color:#00B4FF;
+	text-decoration: underline;
 }
 
 #logo, #logo a {
@@ -26,10 +36,14 @@ body {
 	text-indent: -9999px;
 }
 
-#content {
+#wrapper {
 	width: 980px;
 	margin: 0 auto;
 	padding: 40px 0px;
+}
+
+#content {
+	min-height: 600px;
 }
 
 #info {
@@ -61,7 +75,7 @@ body {
 
 /* Smaller than standard 960 (devices and browsers) */
 @media only screen and (max-width: 979px) {
-	#content {
+	#wrapper {
 		width: 95%;
 		padding: 20px 1%;
 	}

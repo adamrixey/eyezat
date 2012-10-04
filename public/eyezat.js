@@ -1,38 +1,50 @@
-function initialize() {
-	if ( 'geolocation' in navigator) {
-	} else {
-	  alert( "I'm sorry, but geolocation services are not supported by your browser." );
+var map;
+var geocoder;
+
+function initMain() {
+	// Check if geolocation available, else redirect
+	if ( !( 'geolocation' in navigator ) ) {
+		window.location = '/alt';
 		return null;
 	}
 
-	var elLat = document.getElementById( 'latitude' );
-	var elLong = document.getElementById( 'longitude' );
-
-	// if latitude not provided, then get latitude and longitude from browser
-	if ( elLat.innerHTML == '' ) {
-		navigator.geolocation.getCurrentPosition( function( pos ) {
-			elLat.innerHTML = pos.coords.latitude.toFixed( 5 );
-			elLong.innerHTML = pos.coords.longitude.toFixed( 5 );
-			genLink();
-			drawMap();
-		} );
-	} else {
-		drawMap();
-	}
-
+	// Write coordinates
+	navigator.geolocation.getCurrentPosition( function( position ) {
+		var latitude = position.coords.latitude.toFixed( 5 );
+		var longitude = position.coords.longitude.toFixed( 5 );
+		document.getElementById( 'coords' ).innerHTML =
+			latitude + ' lat, ' + longitude + 'long';
+		writeLink( latitude, longitude );
+		drawMap( latitude, longitude, 16 );
+	} )
 }
 
-function genLink() {
-	var fLat = parseFloat( document.getElementById( 'latitude' ).innerHTML );
-	var fLong = parseFloat( document.getElementById( 'longitude' ).innerHTML );
-	var link = geoJamCompress( fLat, fLong );
+
+function initAlt() {
+	// Draw anonymous map
+	drawMap( '63.0695', '-151.0074', 8 )
+}
+
+
+function initLink() {
+	// Draw map
+	var fLat = document.getElementById( 'latitude' ).innerHTML;
+	var fLng = document.getElementById( 'longitude' ).innerHTML;
+	drawMap( fLat, fLng, 13 );
+}
+
+
+function writeLink( lat, lng ) {
+	var link = geoJamCompress( parseFloat( lat ), parseFloat( lng ) );
 	document.getElementById( 'link' ).innerHTML =
 		'<a href="/' + link + '">eyez.at/' + link + '</a>';
 }
 
+
 function geoJamCompress( fLat, fLong ) {
 	return toBase62( fLat ) + toBase62( fLong );
 }
+
 
 function toBase62( cord ) {
 	var base62set = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -61,28 +73,51 @@ function toBase62( cord ) {
 	return result.reverse().join('');
 }
 
-function drawMap() {
-	var elLat = document.getElementById( 'latitude' );
-	var elLong = document.getElementById( 'longitude' );
 
-	var fLat = parseFloat( elLat.innerHTML );
-	var fLong = parseFloat( elLong.innerHTML );
+function drawMap( lat, lng, zoom ) {
+	var fLat = parseFloat( lat ),
+	    fLng = parseFloat( lng );
 
-	var mapLatLng = new google.maps.LatLng( fLat, fLong );
+	var mapLatLng = new google.maps.LatLng( fLat, fLng );
 
 	var elMap = document.getElementById( 'map_canvas' );
 
   var mapOptions = {
     center: mapLatLng,
-    zoom: parseInt( elMap.getAttribute( 'data-zoom' ) ),
+    zoom: zoom,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
-  var map = new google.maps.Map( elMap, mapOptions );
+  map = new google.maps.Map(
+		document.getElementById( 'map_canvas' ),
+		mapOptions
+	);
 
 	var marker = new google.maps.Marker( {
 		position: mapLatLng,
 		map: map,
 		title: 'eyez.at this location'
+	} );
+}
+
+
+function showAddress( address ) {
+	geocoder = new google.maps.Geocoder();
+	geocoder.geocode( { 'address': address }, function( results, status ) {
+		if ( status == google.maps.GeocoderStatus.OK ) {
+			map.setCenter( results[ 0 ].geometry.location );
+			map.setZoom( 12 );
+			var marker = new google.maps.Marker( {
+				map: map,
+				position: results[ 0 ].geometry.location
+			} );
+			var lat = results[ 0 ].geometry.location.Xa.toFixed( 5 );
+			var lng = results[ 0 ].geometry.location.Ya.toFixed( 5 );
+			document.getElementById( 'coords' ).innerHTML =
+				lat + ' lat, ' + lng + ' long';
+			writeLink( lat, lng );
+		} else {
+			alert( "Search was unsuccessful: " + status );
+		}
 	} );
 }

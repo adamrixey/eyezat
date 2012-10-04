@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @title %></title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="eyezat.css">
+  <script type="text/javascript" src="eyezat.js"></script>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAf6-XZy-fFLkRLWNDmril1v_pM9AQv_Rc&sensor=false">
+  </script>
+</head>
+
+<body onload="<%= @init_func %>()">
+
+<div id="wrapper">
+  <div id="content">
+    <div id="logo">
+  		<a href="/" title="eyez.at home" rel="home">eyez.at</a>
+  	</div>
+
+    <%= yield %>
+
+  </div>
+
+  <footer style="color:#B1B1B1">
+    No matter where you go, there you are. |
+    <a style="color:#B1B1B1" href="/about">About</a>
+
+  </footer>
+</div>
+
+</body>
+</html>

@@ -10,6 +10,7 @@ class Geojam
       '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
   end
 
+
   def coordinates
     # validate shortener
     return nil if ( @shortener =~ /^[0-9A-Z]{10}$/i ).nil?
@@ -19,6 +20,7 @@ class Geojam
       :longitude => expand( @short_long )
     }
   end
+
 
   def expand( compressed )
     # build base10 int by multipling the power of each column by its value and

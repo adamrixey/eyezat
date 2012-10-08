@@ -88,21 +88,21 @@ function drawMap( lat, lng, zoom ) {
 
 	var elMap = document.getElementById( 'map_canvas' );
 
-  var mapOptions = {
-    center: mapLatLng,
-    zoom: zoom,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
+	var mapOptions = {
+	    center: mapLatLng,
+	    zoom: zoom,
+	    mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
 
-  map = new google.maps.Map(
+	map = new google.maps.Map(
 		document.getElementById( 'map_canvas' ),
 		mapOptions
 	);
 
 	var marker = new google.maps.Marker( {
-		position: mapLatLng,
-		map: map,
-		title: 'eyez.at this location'
+	    position: mapLatLng,
+	    map: map,
+	    title: 'eyez.at this location'
 	} );
 }
 

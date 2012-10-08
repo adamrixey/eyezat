@@ -9,14 +9,20 @@ function initMain() {
 	}
 
 	// Write coordinates
-	navigator.geolocation.getCurrentPosition( function( position ) {
-		var latitude = position.coords.latitude.toFixed( 5 );
-		var longitude = position.coords.longitude.toFixed( 5 );
-		document.getElementById( 'coords' ).innerHTML =
-			latitude + ' lat, ' + longitude + ' long';
-		writeLink( latitude, longitude );
-		drawMap( latitude, longitude, 16 );
-	} )
+	navigator.geolocation.getCurrentPosition(
+		function( position ) {
+			var latitude = position.coords.latitude.toFixed( 5 );
+			var longitude = position.coords.longitude.toFixed( 5 );
+			document.getElementById( 'coords' ).innerHTML =
+				latitude + ' lat, ' + longitude + ' long';
+			writeLink( latitude, longitude );
+			drawMap( latitude, longitude, 16 );
+		},
+		function ( error ) {
+			if ( error.code == error.PERMISSION_DENIED )
+				window.location = '/alt';
+		}
+	);
 }
 
 

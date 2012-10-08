@@ -13,7 +13,7 @@ function initMain() {
 		var latitude = position.coords.latitude.toFixed( 5 );
 		var longitude = position.coords.longitude.toFixed( 5 );
 		document.getElementById( 'coords' ).innerHTML =
-			latitude + ' lat, ' + longitude + 'long';
+			latitude + ' lat, ' + longitude + ' long';
 		writeLink( latitude, longitude );
 		drawMap( latitude, longitude, 16 );
 	} )

@@ -32,6 +32,10 @@ a:hover {
 	background-image: url( '/eyezat.png' );
 }
 
+#logo:hover {
+	background-color: #F5F5F7;
+}
+
 #logo a {
 	text-indent: -9999px;
 }

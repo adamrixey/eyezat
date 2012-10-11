@@ -1,12 +1,12 @@
   <div id="info">
-    <span id="coords">
-    	<span id="latitude"><%= @coordinates[ :latitude ] %></span> lat,
-    	<span id="longitude"><%= @coordinates[ :longitude ] %></span> long
-    </span>
-
     <span id="permalink">
       <span id="link"><a href="/<%= @link %>">eyez.at/<%= @link %></a></span>
       <a href="http://maps.google.com/maps?daddr=<%= @coordinates[ :latitude ] %>,<%= @coordinates[ :longitude ] %>">Directions</a>
+    </span>
+
+    <span id="coords">
+    	<span id="latitude"><%= @coordinates[ :latitude ] %></span> lat,
+    	<span id="longitude"><%= @coordinates[ :longitude ] %></span> long
     </span>
 
     <div id="map_canvas"></div>

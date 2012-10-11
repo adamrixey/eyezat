@@ -55,23 +55,39 @@ a:hover {
 	background-color: #515151;
 	padding: 20px;
 	font-size: 20px;
-}
-
-#coords {
-	line-height: 45px;
-	background-color: #333337;
-	color: #00B4FF;
-	padding: 8px 20px 9px 20px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
 }
 
 #permalink a, #permalink a:hover, #permalink a:visited {
 	line-height: 45px;
+	padding: 8px 20px 9px 20px;
 	color: #00B4FF;
 	text-decoration: none;
+	background: #333337;
+	background: -moz-linear-gradient(top, #404045 0%, #222226 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#404045), color-stop(100%,#222226)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #404045 0%,#222226 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #404045 0%,#222226 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #404045 0%,#222226 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #404045 0%,#222226 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#404045', endColorstr='#222226',GradientType=0 ); /* IE6-9 */
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+}
+
+#coords {
+	line-height: 45px;
+	color: #00B4FF;
 	margin-left: 15px;
+	display: block;
+	float: right;
 }
 
 #map_canvas {
+	clear: both;
 	width: 100%;
 	height: 350px;
 	margin-top: 20px;

@@ -16,10 +16,10 @@ get '/about/?' do
 end
 
 
-get '/alt/?' do
-  @title = 'eyez.at: Non-current location geocoordinate link shortener'
-  @init_func = 'initAlt'
-  erb :alt
+get '/search/?' do
+  @title = 'eyez.at: Search different location'
+  @init_func = 'initSearch'
+  erb :search
 end
 
 

@@ -26,7 +26,7 @@ function initMain() {
 }
 
 
-function initAlt() {
+function initSearch() {
 	// Draw anonymous map
 	drawMap( '63.0695', '-151.0074', 8 )
 }
